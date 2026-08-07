@@ -128,7 +128,7 @@ Run: `npx expo config --type public`
 
 Expected: all commands exit 0 and resolved config contains the required identifiers without forbidden permissions.
 
-- [ ] **Step 4: Commit the verified capability pack**
+- [x] **Step 4: Commit the verified capability pack**
 
 ```bash
 git add .
@@ -145,18 +145,20 @@ git commit -m "⚙ 공통 네이티브 기능과 수익화 모듈 추가"
 - Consumes: clean committed feature branch and EAS development profile
 - Produces: installable Android development APK URL and build ID
 
-- [ ] **Step 1: Start the cloud build**
+- [x] **Step 1: Start the cloud build**
 
 Run: `npx eas-cli@latest build --platform android --profile development --non-interactive`
 
 Expected: EAS accepts the project and returns a build ID.
 
-- [ ] **Step 2: Confirm the terminal state**
+- [x] **Step 2: Confirm the terminal state**
 
 Run: `npx eas-cli@latest build:list --platform android --status finished --limit 1 --json --non-interactive`
 
 Expected: the newest Android build is returned with status `finished`; if the build command failed, inspect its Gradle logs and fix the root cause before rebuilding.
 
-- [ ] **Step 3: Record completion**
+Result: build `20d3aea0-2cc9-490e-958e-9a72ac1afacd` finished successfully. The first build exposed a Kotlin metadata mismatch in Google Mobile Ads 25.4.0; pinning `react-native-google-mobile-ads` to 16.3.0 selected Google Mobile Ads 25.0.0 and removed the mismatch.
+
+- [x] **Step 3: Record completion**
 
 Mark `TASKS.md` and this plan complete, commit the final status, and report the APK installation URL. Do not push or merge the branch.
