@@ -36,6 +36,7 @@
 - Expo owner: `devpreneur_ko`
 - development Android package: `com.devpreneur_ko.two_player_games.dev`
 - development AdMob App ID: Google 공식 Android 샘플 `ca-app-pub-3940256099942544~3347511713`
+- iOS 개발 설정에는 Google 공식 샘플 `ca-app-pub-3940256099942544~1458002511`을 사용한다.
 - 광고 요청은 개발 중 패키지가 제공하는 `TestIds`만 사용한다.
 - RevenueCat API key는 코드와 Git에 넣지 않는다. SDK만 빌드에 포함하고 실제 연결 시 EAS 환경변수로 주입한다.
 - production package와 production AdMob App ID는 첫 스토어 빌드 시 별도 설정한다.

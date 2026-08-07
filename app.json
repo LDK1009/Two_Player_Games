@@ -2,7 +2,11 @@
   "expo": {
     "name": "둘이 하는 게임",
     "slug": "two-player-games",
+    "owner": "devpreneur_ko",
     "version": "1.0.0",
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "twoplayergames",
@@ -17,7 +21,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.devpreneur_ko.two_player_games.dev"
     },
     "web": {
       "output": "static",
@@ -41,11 +46,41 @@
           "imageWidth": 76
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      "expo-sharing",
+      "expo-notifications",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": false,
+          "savePhotosPermission": "게임 결과 이미지를 갤러리에 저장할 수 있도록 허용해 주세요.",
+          "granularPermissions": []
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511",
+          "delayAppMeasurementInit": true,
+          "optimizeInitialization": true,
+          "optimizeAdLoading": true,
+          "userTrackingUsageDescription": "맞춤형 광고 제공을 위해 기기 식별자 사용을 허용해 주세요."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "05b87c3a-c40d-41a1-a226-238c8dbb1f42"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/05b87c3a-c40d-41a1-a226-238c8dbb1f42"
     }
   }
 }

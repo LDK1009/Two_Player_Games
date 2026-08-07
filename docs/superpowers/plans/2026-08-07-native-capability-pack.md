@@ -30,26 +30,26 @@
 - Consumes: Expo SDK 57 dependency graph
 - Produces: installed native modules available to CNG and EAS Build
 
-- [ ] **Step 1: Install Expo-compatible modules**
+- [x] **Step 1: Install Expo-compatible modules**
 
 Run: `npx expo install expo-sensors expo-keep-awake expo-notifications react-native-view-shot expo-sharing expo-media-library expo-updates react-native-purchases react-native-purchases-ui`
 
 Expected: Expo selects SDK 57 compatible package versions and updates the lockfile.
 
-- [ ] **Step 2: Install the AdMob SDK**
+- [x] **Step 2: Install the AdMob SDK**
 
 Run: `npm install react-native-google-mobile-ads`
 
 Expected: the package and its config plugin are installed without peer dependency errors.
 
-- [ ] **Step 3: Inspect installed config plugin contracts**
+- [x] **Step 3: Inspect installed config plugin contracts**
 
 Read the installed package config plugins and verify the exact AdMob option names before editing app config.
 
 ### Task 2: Configure native identifiers, plugins, and EAS
 
 **Files:**
-- Replace: `app.json` with `app.config.ts`
+- Modify: `app.json`
 - Create: `eas.json`
 - Modify: `.gitignore`
 
@@ -57,9 +57,9 @@ Read the installed package config plugins and verify the exact AdMob option name
 - Consumes: installed config plugin schemas
 - Produces: resolved Expo config with development package, AdMob sample App ID, plugins, and fingerprint runtime policy
 
-- [ ] **Step 1: Create typed dynamic app config**
+- [x] **Step 1: Configure the static app config**
 
-`app.config.ts` exports the existing app metadata plus:
+`app.json` keeps the existing app metadata and adds:
 
 ```ts
 owner: 'devpreneur_ko',
@@ -69,7 +69,7 @@ android: { package: 'com.devpreneur_ko.two_player_games.dev' },
 
 Configure AdMob with `ca-app-pub-3940256099942544~3347511713`, disable audio recording, and add notifications, media library, sharing, and updates plugins using their installed schemas.
 
-- [ ] **Step 2: Create the development build profile**
+- [x] **Step 2: Create the development build profile**
 
 Create `eas.json` with:
 
@@ -89,7 +89,7 @@ Create `eas.json` with:
 }
 ```
 
-- [ ] **Step 3: Link the Expo project and configure updates**
+- [x] **Step 3: Link the Expo project and configure updates**
 
 Run: `npx eas-cli@latest init`
 
@@ -106,19 +106,19 @@ Expected: `extra.eas.projectId` and the EAS update URL are present while `runtim
 - Consumes: installed packages and resolved Expo config
 - Produces: evidence that the project is ready for EAS Build
 
-- [ ] **Step 1: Validate dependencies**
+- [x] **Step 1: Validate dependencies**
 
 Run: `npm ls --depth=0`
 
 Expected: exit 0 with no missing or invalid package.
 
-- [ ] **Step 2: Validate Expo compatibility**
+- [x] **Step 2: Validate Expo compatibility**
 
 Run: `npx expo-doctor`
 
 Expected: all checks pass.
 
-- [ ] **Step 3: Validate code and configuration**
+- [x] **Step 3: Validate code and configuration**
 
 Run: `npm run typecheck`
 
