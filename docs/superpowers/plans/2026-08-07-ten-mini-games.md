@@ -36,7 +36,7 @@
 - Produces: `GAME_DEFINITIONS`, `getGameDefinition(gameId)`
 - Produces: `useGameRecordsStore` with `saveResult(gameId, result)` and `recentGameId`
 
-- [ ] **Step 1: Install the TypeScript test runner**
+- [x] **Step 1: Install the TypeScript test runner**
 
 Run: `npm install --save-dev tsx`
 
@@ -46,7 +46,7 @@ Add scripts:
 "test": "tsx --test \"src/**/*.test.ts\""
 ```
 
-- [ ] **Step 2: Write the failing registry tests**
+- [x] **Step 2: Write the failing registry tests**
 
 ```ts
 test('registers exactly ten unique games', () => {
@@ -59,12 +59,12 @@ test('returns undefined for an unknown game id', () => {
 });
 ```
 
-- [ ] **Step 3: Run the tests and verify RED**
+- [x] **Step 3: Run the tests and verify RED**
 
 Run: `npm test`
 Expected: FAIL because the registry module does not exist.
 
-- [ ] **Step 4: Implement the shared types and registry**
+- [x] **Step 4: Implement the shared types and registry**
 
 ```ts
 export type GameId =
@@ -84,7 +84,7 @@ export type GameResult = {
 
 Register all ten titles, modes, durations, icons, accents, and one-line rules. Persist only recent game ID, play count, win counts, and best numeric record.
 
-- [ ] **Step 5: Run tests and commit**
+- [x] **Step 5: Run tests and commit**
 
 Run: `npm test && npm run typecheck && npm run lint`
 Expected: all exit 0.
@@ -340,4 +340,3 @@ Document the ten games, dev-client start command, and test commands in `README.m
 Commit: `🌱 추천 미니게임 10개 구현 완료`
 
 Do not merge this feature branch until the user approves the device result. Push the feature branch because the user explicitly requested remote synchronization.
-
