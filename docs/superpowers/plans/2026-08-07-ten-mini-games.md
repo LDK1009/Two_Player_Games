@@ -245,19 +245,19 @@ Commit: `✨ 커플 궁합과 폭탄 설명서 게임 구현`
 - Produces: `isCircleOutsideArena(circle, arena)` and `detectGoal(puck, field)`
 - Uses Planck worlds locally inside each component; render coordinates are shared values.
 
-- [ ] **Step 1: Test physics boundary helpers**
+- [x] **Step 1: Test physics boundary helpers**
 
 Cover circles fully inside, touching, and fully outside the sumo arena; cover top goal, bottom goal, and no goal.
 
-- [ ] **Step 2: Implement finger sumo**
+- [x] **Step 2: Implement finger sumo**
 
 Create two dynamic circle bodies and static arena boundaries. Gesture velocity applies impulses. A 60 Hz loop steps physics, updates Skia positions, and ends when one body is fully outside.
 
-- [ ] **Step 3: Implement air hockey**
+- [x] **Step 3: Implement air hockey**
 
 Create one dynamic puck, two kinematic paddles, walls with goal gaps, 45-second timer, and five-goal early finish. Reset the puck after each goal.
 
-- [ ] **Step 4: Verify and commit**
+- [x] **Step 4: Verify and commit**
 
 Run all tests, typecheck, and lint.
 
