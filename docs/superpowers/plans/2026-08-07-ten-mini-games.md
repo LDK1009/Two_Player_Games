@@ -214,19 +214,19 @@ Commit: `✨ 치킨 버튼과 비밀 예측 게임 구현`
 - Produces: seven fixed Korean two-choice questions
 - Produces: `createBombPuzzle(seed)` and `validateBombStep(puzzle, stepIndex, input)`
 
-- [ ] **Step 1: Test and implement deterministic bomb puzzle generation**
+- [x] **Step 1: Test and implement deterministic bomb puzzle generation**
 
 The same numeric seed must return the same wire colors, symbol order, and three expected answers. Invalid step indexes return false.
 
-- [ ] **Step 2: Implement couple sync**
+- [x] **Step 2: Implement couple sync**
 
 Collect both hidden answers, reveal simultaneously, advance through seven questions, and map matches to one of four result subtitles.
 
-- [ ] **Step 3: Implement bomb manual**
+- [x] **Step 3: Implement bomb manual**
 
 Render the manual upside down in P2's half and the interactive bomb in P1's half. Two mistakes or 45 seconds fail; three correct steps win.
 
-- [ ] **Step 4: Verify and commit**
+- [x] **Step 4: Verify and commit**
 
 Run all tests, typecheck, and lint.
 
