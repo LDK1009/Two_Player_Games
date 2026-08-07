@@ -278,23 +278,23 @@ Commit: `✨ 핑거 스모와 에어하키 물리 게임 구현`
 - Produces: `calculateRocketForce(leftThrottle, rightThrottle)`
 - Produces: `hasReachedCheckpoint(ball, checkpoint)` and `nextCheckpointIndex(current, total)`
 
-- [ ] **Step 1: Test and implement rocket force conversion**
+- [x] **Step 1: Test and implement rocket force conversion**
 
 Equal throttles produce vertical force with zero torque; left-only and right-only produce opposite torque signs.
 
-- [ ] **Step 2: Implement dual rocket**
+- [x] **Step 2: Implement dual rocket**
 
 Use two hold buttons, a simple fixed-step flight model, scrolling obstacles, collision reset, and a 30-second shared checkpoint score.
 
-- [ ] **Step 3: Test and implement maze checkpoint rules**
+- [x] **Step 3: Test and implement maze checkpoint rules**
 
 Only the active checkpoint advances. Reaching the third checkpoint produces completion; wall contacts increment collision count with a debounce.
 
-- [ ] **Step 4: Implement tilt maze**
+- [x] **Step 4: Implement tilt maze**
 
 Subscribe to `Accelerometer` at 30 Hz, smooth x/y values, move the ball through bounded corridors, and clean up the subscription on replay/unmount.
 
-- [ ] **Step 5: Verify and commit**
+- [x] **Step 5: Verify and commit**
 
 Run all tests, typecheck, and lint.
 
