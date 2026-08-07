@@ -186,15 +186,15 @@ Commit: `✨ 반응속도와 색깔 함정 게임 구현`
 - Produces: `resolveChickenRound(releaseTimes, explosionTime)`
 - Produces: `scorePredictionRound(p1Prediction, p1Choice, p2Prediction, p2Choice)`
 
-- [ ] **Step 1: Test and implement chicken round rules**
+- [x] **Step 1: Test and implement chicken round rules**
 
 Cover both safe releases, one explosion, both explosion, and equal safe times. The component animates pressure without revealing the exact explosion point.
 
-- [ ] **Step 2: Test and implement prediction scoring**
+- [x] **Step 2: Test and implement prediction scoring**
 
 P1 scores when predicting P2's choice; P2 scores when predicting P1's choice. Keep choices hidden until all four inputs exist, repeat five rounds, then finish.
 
-- [ ] **Step 3: Verify and commit**
+- [x] **Step 3: Verify and commit**
 
 Run all tests, typecheck, and lint.
 
