@@ -149,23 +149,23 @@ Commit: `✨ 공통 게임 셸과 미니게임 런처 구현`
 - Produces: `resolveReactionWinner(releasedPlayer, signalState)`
 - Produces: `createColorTrapRound(randomValue)`, `scoreColorAnswer(round, answer)`
 
-- [ ] **Step 1: Write failing reaction tests**
+- [x] **Step 1: Write failing reaction tests**
 
 Cover P1/P2 legal release, false start, and simultaneous draw.
 
-- [ ] **Step 2: Implement reaction rules and component**
+- [x] **Step 2: Implement reaction rules and component**
 
 Use a 1.5–4 second randomized signal timer. Pointer down arms each player; release before green loses, first legal release wins. Gate completion so one result is emitted.
 
-- [ ] **Step 3: Write failing color tests**
+- [x] **Step 3: Write failing color tests**
 
 Verify generated display word and ink color can differ, correct ink choice awards one, and a wrong choice subtracts one.
 
-- [ ] **Step 4: Implement color rules and component**
+- [x] **Step 4: Implement color rules and component**
 
 Run ten rounds, rotate the P2 controls, emit score result after round ten, and haptically distinguish correct/wrong answers.
 
-- [ ] **Step 5: Verify and commit**
+- [x] **Step 5: Verify and commit**
 
 Run all tests, typecheck, and lint.
 
