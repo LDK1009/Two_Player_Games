@@ -108,27 +108,27 @@ Commit: `🧪 게임 레지스트리와 테스트 기반 추가`
 - Produces: common phase flow `ready → countdown → playing → result`
 - Produces: `GameComponentResolver({ gameId, roundKey, onFinish })`
 
-- [ ] **Step 1: Write failing countdown reducer tests**
+- [x] **Step 1: Write failing countdown reducer tests**
 
 Test `advanceCountdown(3) === 2`, `advanceCountdown(1) === 0`, and that values never become negative.
 
-- [ ] **Step 2: Verify RED and implement the countdown utility/hook**
+- [x] **Step 2: Verify RED and implement the countdown utility/hook**
 
 Run `npm test`, then implement a one-second interval that cleans up on phase change and unmount.
 
-- [ ] **Step 3: Implement `GameShell`**
+- [x] **Step 3: Implement `GameShell`**
 
 The shell renders the rule card, start button, 3–2–1 overlay, game content, and a result card with replay/home controls. Incrementing `roundKey` remounts the game cleanly.
 
-- [ ] **Step 4: Implement dynamic routing and unknown-ID handling**
+- [x] **Step 4: Implement dynamic routing and unknown-ID handling**
 
 `[gameId].tsx` passes the string parameter to `GameRouteView`; unknown IDs show a Korean error message and a home button.
 
-- [ ] **Step 5: Replace the home view**
+- [x] **Step 5: Replace the home view**
 
 Render a two-column `ScrollView` card grid for all ten games, show mode/duration tags, recent game, and settings toggles. Route with `router.push({ pathname: '/games/[gameId]', params: { gameId } })`.
 
-- [ ] **Step 6: Verify and commit**
+- [x] **Step 6: Verify and commit**
 
 Run: `npm test && npm run typecheck && npm run lint`
 

@@ -3,6 +3,7 @@ export const colors = {
   surface: '#FFFFFF',
   ink: '#201A17',
   muted: '#776B65',
+  border: '#EEE5DE',
   coral: '#FF6B5F',
   coralSoft: '#FFD8D4',
   blue: '#4D8BFF',
