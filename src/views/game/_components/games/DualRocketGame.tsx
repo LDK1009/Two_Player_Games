@@ -37,6 +37,7 @@ export function DualRocketGame({ onFinish }: GameComponentProps) {
     let altitude = 0;
     let collisions = 0;
     let elapsedMilliseconds = 0;
+    let lastObstacleBand = -1;
     finishedFlag.set(0);
 
     const interval = setInterval(() => {
@@ -49,11 +50,20 @@ export function DualRocketGame({ onFinish }: GameComponentProps) {
 
       const minimumX = 38;
       const maximumX = layout.width - 38;
-      if (x < minimumX || x > maximumX) {
+      const obstacleTravel = Math.max(260, layout.height - 190);
+      const obstacleBand = Math.floor(altitude / obstacleTravel);
+      const obstacleY = 70 + (altitude % obstacleTravel);
+      const rocketY = layout.height - 204;
+      const obstacleBlocksLeft = obstacleBand % 2 === 0;
+      const hitObstacle = Math.abs(obstacleY - rocketY) < 34
+        && (obstacleBlocksLeft ? x < layout.width * 0.58 : x > layout.width * 0.42)
+        && obstacleBand !== lastObstacleBand;
+      if (x < minimumX || x > maximumX || hitObstacle) {
         x = layout.width / 2;
         horizontalVelocity = 0;
         angle = 0;
         collisions += 1;
+        lastObstacleBand = obstacleBand;
         void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
       }
 
@@ -73,10 +83,14 @@ export function DualRocketGame({ onFinish }: GameComponentProps) {
     }, FRAME_MILLISECONDS);
 
     return () => clearInterval(interval);
-  }, [finishedFlag, layout.width, leftThrottle, onFinish, rightThrottle]);
+  }, [finishedFlag, layout.height, layout.width, leftThrottle, onFinish, rightThrottle]);
 
   const handleLayout = (event: LayoutChangeEvent) => setLayout(event.nativeEvent.layout);
   const checkpointProgress = (flight.altitude % CHECKPOINT_ALTITUDE) / CHECKPOINT_ALTITUDE;
+  const obstacleTravel = Math.max(260, layout.height - 190);
+  const obstacleBand = Math.floor(flight.altitude / obstacleTravel);
+  const obstacleY = 70 + (flight.altitude % obstacleTravel);
+  const obstacleBlocksLeft = obstacleBand % 2 === 0;
 
   return (
     <View onLayout={handleLayout} style={styles.container}>
@@ -88,6 +102,13 @@ export function DualRocketGame({ onFinish }: GameComponentProps) {
       <View style={[styles.checkpointLine, { top: `${18 + checkpointProgress * 42}%` }]}>
         <Text style={styles.checkpointText}>CHECKPOINT</Text>
       </View>
+      <View
+        style={[
+          styles.obstacle,
+          obstacleBlocksLeft ? styles.leftObstacle : styles.rightObstacle,
+          { top: obstacleY },
+        ]}
+      />
       <View style={[styles.rocket, { left: flight.x - 26, transform: [{ rotate: `${flight.angle}deg` }] }]}>
         <Text style={styles.rocketIcon}>🚀</Text>
       </View>
@@ -120,6 +141,9 @@ const styles = StyleSheet.create({
   timer: { color: '#FFD66B', fontSize: typography.heading, fontWeight: '900' },
   checkpointLine: { position: 'absolute', left: 0, right: 0, height: 2, borderStyle: 'dashed', borderWidth: 1, borderColor: '#7F79B9', alignItems: 'center' },
   checkpointText: { color: '#7F79B9', fontSize: 10, fontWeight: '900', backgroundColor: '#17152B', paddingHorizontal: spacing.sm },
+  obstacle: { position: 'absolute', width: '50%', height: 18, borderRadius: radius.pill, backgroundColor: '#8C6BFF' },
+  leftObstacle: { left: 0 },
+  rightObstacle: { right: 0 },
   rocket: { position: 'absolute', bottom: 132, width: 52, height: 72, alignItems: 'center', justifyContent: 'center' },
   rocketIcon: { fontSize: 52 },
   controls: { position: 'absolute', left: spacing.md, right: spacing.md, bottom: spacing.md, flexDirection: 'row', gap: spacing.md },

@@ -55,9 +55,19 @@ export function TiltMazeGame({ onFinish }: GameComponentProps) {
       const maximumX = layout.width - BALL_RADIUS;
       const minimumY = BALL_RADIUS;
       const maximumY = layout.height - BALL_RADIUS;
-      const hitWall = nextX < minimumX || nextX > maximumX || nextY < minimumY || nextY > maximumY;
+      const hitBoundary = nextX < minimumX || nextX > maximumX || nextY < minimumY || nextY > maximumY;
       x = Math.min(maximumX, Math.max(minimumX, nextX));
       y = Math.min(maximumY, Math.max(minimumY, nextY));
+      const firstWallY = layout.height * 0.6;
+      const secondWallY = layout.height * 0.35;
+      const hitFirstWall = x <= layout.width * 0.48 && Math.abs(y - firstWallY) <= BALL_RADIUS + 8;
+      const hitSecondWall = x >= layout.width * 0.48 && Math.abs(y - secondWallY) <= BALL_RADIUS + 8;
+      const hitInternalWall = hitFirstWall || hitSecondWall;
+      const hitWall = hitBoundary || hitInternalWall;
+      if (hitInternalWall) {
+        const wallY = hitFirstWall ? firstWallY : secondWallY;
+        y = velocityY > 0 ? wallY - BALL_RADIUS - 9 : wallY + BALL_RADIUS + 9;
+      }
       if (hitWall) {
         velocityX *= -0.45;
         velocityY *= -0.45;
@@ -107,6 +117,7 @@ export function TiltMazeGame({ onFinish }: GameComponentProps) {
 
     void Accelerometer.isAvailableAsync().then(setSensorAvailable);
     return () => {
+      isFinished = true;
       subscription.remove();
       clearInterval(timer);
     };

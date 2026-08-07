@@ -312,12 +312,12 @@ Commit: `✨ 협동 로켓과 기울기 미로 구현`
 - Consumes all ten games and the shared shell
 - Produces a clean feature branch ready for user device review
 
-- [ ] **Step 1: Run the complete automated suite**
+- [x] **Step 1: Run the complete automated suite**
 
 Run: `npm test`
 Expected: all rule and registry tests pass with zero failures.
 
-- [ ] **Step 2: Run static verification**
+- [x] **Step 2: Run static verification**
 
 Run: `npm run typecheck`
 
@@ -331,11 +331,11 @@ Expected: all commands exit 0 and Expo Doctor reports every check passing.
 
 Open every launcher card, start a round, reach a result, replay, and return home. Verify P2 rotation, safe areas, Android back behavior, timers, sensor cleanup, and no red error overlay.
 
-- [ ] **Step 4: Update documentation and task status**
+- [x] **Step 4: Update documentation and task status**
 
 Document the ten games, dev-client start command, and test commands in `README.md`. Mark the task and every plan checkbox complete.
 
-- [ ] **Step 5: Final commit**
+- [x] **Step 5: Final commit**
 
 Commit: `🌱 추천 미니게임 10개 구현 완료`
 

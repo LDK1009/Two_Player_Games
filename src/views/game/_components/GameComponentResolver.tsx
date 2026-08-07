@@ -6,7 +6,6 @@ import { ColorTrapGame } from '@/views/game/_components/games/ColorTrapGame';
 import { CoupleSyncGame } from '@/views/game/_components/games/CoupleSyncGame';
 import { DualRocketGame } from '@/views/game/_components/games/DualRocketGame';
 import { FingerSumoGame } from '@/views/game/_components/games/FingerSumoGame';
-import { PlaceholderGame } from '@/views/game/_components/games/PlaceholderGame';
 import { ReactionStopGame } from '@/views/game/_components/games/ReactionStopGame';
 import { SecretPredictionGame } from '@/views/game/_components/games/SecretPredictionGame';
 import { TiltMazeGame } from '@/views/game/_components/games/TiltMazeGame';
@@ -37,7 +36,5 @@ export function GameComponentResolver({ gameId, ...gameProps }: GameComponentRes
       return <DualRocketGame {...gameProps} />;
     case 'tilt-maze':
       return <TiltMazeGame {...gameProps} />;
-    default:
-      return <PlaceholderGame {...gameProps} />;
   }
 }
